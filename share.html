@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Your Loss — Won Nothing</title>
+  <meta name="description" content="Tell someone. They probably won't believe you.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">Won Nothing</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="ty-hero">
+    <div class="container">
+      <p class="ty-label">Official Share Kit</p>
+      <h1 class="ty-title">Share Your Loss.</h1>
+      <p class="ty-meta">Tell someone. They probably won't believe you.</p>
+    </div>
+  </section>
+
+  <!-- COPY BLOCK -->
+  <section class="section section--gray">
+    <div class="container">
+      <div class="share-copy-block">
+        <p class="share-copy-text">
+          I just paid €1 to officially win nothing.<br>
+          I received a certificate.<br>
+          It was exactly as promised.<br>
+          https://wonnothing.com
+        </p>
+      </div>
+      <p class="share-copy-note" id="share-fallback" hidden>
+        Select the text above and copy it manually.
+      </p>
+    </div>
+  </section>
+
+  <!-- SHARE BUTTONS -->
+  <section class="section">
+    <div class="container ty-actions">
+
+      <div class="ty-action-group">
+        <button id="copy-btn" class="btn" onclick="copyShareText()">Copy Text</button>
+      </div>
+
+      <div class="ty-action-group">
+        <a href="https://wa.me/?text=I%20just%20paid%20%E2%82%AC1%20to%20officially%20win%20nothing.%20I%20received%20a%20certificate.%20It%20was%20exactly%20as%20promised.%20https%3A%2F%2Fwonnothing.com" target="_blank" rel="noopener noreferrer" class="btn-outline">Share on WhatsApp</a>
+      </div>
+
+      <div class="ty-action-group">
+        <a href="https://twitter.com/intent/tweet?text=I%20just%20paid%20%E2%82%AC1%20to%20officially%20win%20nothing.%20It%20was%20exactly%20as%20promised.&url=https%3A%2F%2Fwonnothing.com" target="_blank" rel="noopener noreferrer" class="btn-outline">Share on X</a>
+      </div>
+
+      <div class="ty-action-group">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwonnothing.com" target="_blank" rel="noopener noreferrer" class="btn-outline">Share on Facebook</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <span class="footer-brand">Won Nothing</span>
+      <p class="footer-tagline">The World's Most Honest Lottery</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyShareText() {
+      var text = 'I just paid €1 to officially win nothing.\nI received a certificate.\nIt was exactly as promised.\nhttps://wonnothing.com';
+      var btn = document.getElementById('copy-btn');
+      var fallback = document.getElementById('share-fallback');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          btn.textContent = 'Copied.';
+          setTimeout(function () { btn.textContent = 'Copy Text'; }, 2000);
+        }).catch(function () {
+          fallback.hidden = false;
+        });
+      } else {
+        fallback.hidden = false;
+      }
+    }
+  </script>
+
+</body>
+</html>
