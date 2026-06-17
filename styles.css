@@ -118,6 +118,15 @@ body {
   line-height: 1.9;
 }
 
+.btn-trust {
+  font-size: 11px;
+  color: var(--gray-400);
+  text-align: center;
+  line-height: 1.8;
+  margin-top: 12px;
+  letter-spacing: 0.01em;
+}
+
 .hero-secondary {
   margin-top: 16px;
   font-size: 13px;
