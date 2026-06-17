@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Certificate of Winning Nothing — Won Nothing</title>
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray-400: #a3a3a3;
+      --serif: Georgia, "Times New Roman", Times, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+    }
+
+    html, body {
+      height: 100%;
+      background: #f0f0f0;
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Screen chrome ── */
+    .screen-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      gap: 24px;
+    }
+
+    .screen-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-print {
+      background: #0a0a0a;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--sans);
+      border-radius: 8px;
+      cursor: pointer;
+      letter-spacing: -0.01em;
+      transition: opacity 0.12s;
+    }
+    .btn-print:hover { opacity: 0.82; }
+
+    .btn-back {
+      color: var(--gray-400);
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .btn-back:hover { color: var(--black); }
+
+    .screen-hint {
+      font-size: 12px;
+      color: var(--gray-400);
+      text-align: center;
+    }
+
+    /* ── Certificate card ── */
+    .certificate {
+      width: 800px;
+      max-width: 100%;
+      background: var(--white);
+      padding: 56px 64px;
+      position: relative;
+      /* double border = premium look */
+      border: 1px solid #d4d4d4;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+    }
+
+    /* inner border frame */
+    .certificate::before {
+      content: '';
+      position: absolute;
+      inset: 10px;
+      border: 1px solid #e5e5e5;
+      pointer-events: none;
+    }
+
+    /* ── Header ── */
+    .cert-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .cert-issuer {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 20px;
+    }
+
+    .cert-title {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      line-height: 1.3;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .cert-subtitle {
+      font-size: 12px;
+      color: var(--gray-400);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Divider ── */
+    .cert-divider {
+      border: none;
+      border-top: 1px solid #e5e5e5;
+      margin: 32px 0;
+    }
+
+    /* ── Body text ── */
+    .cert-body {
+      font-family: var(--serif);
+      font-size: 15px;
+      line-height: 1.9;
+      color: #2a2a2a;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .cert-body strong {
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    /* ── Number block ── */
+    .cert-number-block {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .cert-number-label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+
+    .cert-number {
+      font-family: var(--mono);
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--black);
+    }
+
+    /* ── Summary table ── */
+    .cert-summary {
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 32px 0;
+      font-size: 13px;
+    }
+
+    .cert-summary-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .cert-summary-row:last-child { border-bottom: none; }
+
+    .cert-summary-row.highlight {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .cert-summary-key { font-weight: 500; }
+    .cert-summary-val { font-family: var(--mono); font-weight: 600; }
+
+    /* ── Quote ── */
+    .cert-quote {
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 14px;
+      font-style: italic;
+      color: #555;
+      line-height: 1.7;
+      margin: 32px 0;
+      padding: 0 32px;
+    }
+
+    /* ── Footer ── */
+    .cert-footer {
+      border-top: 1px solid #e5e5e5;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .cert-date-block { font-size: 12px; color: var(--gray-400); }
+    .cert-date-label { display: block; text-transform: uppercase; letter-spacing: 0.08em; font-size: 10px; margin-bottom: 4px; }
+    .cert-date-value { color: var(--black); font-weight: 500; }
+
+    .cert-brand-block { text-align: right; }
+    .cert-brand-name {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .cert-brand-dept {
+      font-size: 10px;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      html, body { background: white; }
+
+      .screen-wrapper {
+        padding: 0;
+        background: white;
+        display: block;
+      }
+
+      .screen-actions,
+      .screen-hint { display: none; }
+
+      .certificate {
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid #ccc;
+        padding: 40px 48px;
+      }
+
+      @page {
+        size: A4 landscape;
+        margin: 16mm;
+      }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .certificate { padding: 32px 24px; }
+      .cert-number { font-size: 52px; }
+      .cert-title { font-size: 22px; }
+      .cert-footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .cert-brand-block { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-wrapper">
+
+    <!-- Actions (hidden on print) -->
+    <div class="screen-actions">
+      <button class="btn-print" onclick="window.print()">Save as PDF / Print</button>
+      <a href="thank-you.html" class="btn-back">← Back</a>
+    </div>
+    <p class="screen-hint">In the print dialog, select "Save as PDF" to download.</p>
+
+    <!-- Certificate -->
+    <div class="certificate">
+
+      <div class="cert-header">
+        <p class="cert-issuer">Won Nothing · The World's Most Honest Lottery</p>
+        <h1 class="cert-title">Official Certificate<br>of Winning Nothing</h1>
+        <p class="cert-subtitle">Issued with complete transparency</p>
+      </div>
+
+      <hr class="cert-divider">
+
+      <p class="cert-body">
+        This certifies that the holder of this certificate voluntarily participated in<br>
+        <strong>Won Nothing, The World's Most Honest Lottery</strong>,<br>
+        and officially won absolutely nothing.<br>
+        As promised.
+      </p>
+
+      <div class="cert-number-block">
+        <span class="cert-number-label">Official Loser Number</span>
+        <span class="cert-number">#0001</span>
+      </div>
+
+      <div class="cert-summary">
+        <div class="cert-summary-row">
+          <span class="cert-summary-key">Prize awarded</span>
+          <span class="cert-summary-val">None</span>
+        </div>
+        <div class="cert-summary-row">
+          <span class="cert-summary-key">Cash received</span>
+          <span class="cert-summary-val">€0.00</span>
+        </div>
+        <div class="cert-summary-row">
+          <span class="cert-summary-key">Surprises</span>
+          <span class="cert-summary-val">Zero</span>
+        </div>
+        <div class="cert-summary-row highlight">
+          <span class="cert-summary-key">Promises kept</span>
+          <span class="cert-summary-val">100%</span>
+        </div>
+      </div>
+
+      <p class="cert-quote">
+        "You knew you would lose. You participated anyway.<br>
+        That takes a specific kind of awareness. We respect it."
+      </p>
+
+      <hr class="cert-divider">
+
+      <div class="cert-footer">
+        <div class="cert-date-block">
+          <span class="cert-date-label">Date of Official Loss</span>
+          <span class="cert-date-value" id="cert-date">—</span>
+        </div>
+        <div class="cert-brand-block">
+          <span class="cert-brand-name">Won Nothing</span>
+          <span class="cert-brand-dept">Department of Managed Expectations</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Fill today's date
+    var d = new Date();
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    document.getElementById('cert-date').textContent = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+  </script>
+
+</body>
+</html>
