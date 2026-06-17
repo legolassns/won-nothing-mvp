@@ -151,8 +151,10 @@ grep -n "stripe-link-placeholder" index.html
 
 **In Stripe Dashboard**, imposta la **Success URL** su:
 ```
-https://wonnothing.com/thank-you.html
+https://wonnothing.com/welcome-loser.html
 ```
+
+> `thank-you.html` è mantenuta come pagina di riserva ma non è più il target di Stripe.
 
 Dopo la modifica:
 ```bash

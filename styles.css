@@ -376,6 +376,41 @@ body {
   color: var(--gray-400);
 }
 
+/* ── WELCOME LOSER PAGE ── */
+.wl-secondary-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 4px;
+}
+
+.wl-secondary-actions .btn-outline {
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+}
+
+/* ── THANK YOU NOTICE ── */
+.ty-notice {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--gray-500);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.ty-notice a {
+  color: var(--black);
+  text-decoration: underline;
+}
+
 /* ── THANK YOU PAGE ── */
 .ty-hero {
   padding-top: calc(var(--nav-h) + 80px);
