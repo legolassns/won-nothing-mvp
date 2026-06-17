@@ -393,6 +393,64 @@ body {
   text-align: center;
 }
 
+.ticket-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--black);
+  color: var(--white);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-top: 14px;
+}
+
+.wl-mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.wl-mini-stat {
+  padding: 20px 12px;
+  text-align: center;
+  border-right: 1px solid var(--gray-200);
+}
+
+.wl-mini-stat:last-child {
+  border-right: none;
+}
+
+.wl-mini-stat-number {
+  display: block;
+  font-family: var(--mono);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: var(--black);
+}
+
+.wl-mini-stat-label {
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.45;
+}
+
+.wl-statement-intro {
+  font-size: 13px;
+  color: var(--gray-500);
+  text-align: center;
+  max-width: 400px;
+  margin-bottom: 16px;
+  line-height: 1.65;
+}
+
 /* ── THANK YOU NOTICE ── */
 .ty-notice {
   background: var(--gray-50);
