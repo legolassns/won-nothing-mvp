@@ -520,6 +520,94 @@ body {
   font-weight: 600;
 }
 
+/* ── REVIEWS ── */
+.reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.review-card--last {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 8px);
+}
+
+.review-card {
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.review-stars {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  color: var(--black);
+}
+
+.review-text {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.65;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.review-author {
+  font-size: 12px;
+  color: var(--gray-400);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.reviews-note {
+  font-size: 12px;
+  color: var(--gray-400);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ── STATUS GRID ── */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.status-item {
+  padding: 32px 20px;
+  text-align: center;
+  border-right: 1px solid var(--gray-200);
+}
+
+.status-item:last-child {
+  border-right: none;
+}
+
+.status-number {
+  display: block;
+  font-family: var(--mono);
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 10px;
+  color: var(--black);
+}
+
+.status-label {
+  font-size: 12px;
+  color: var(--gray-500);
+  line-height: 1.45;
+}
+
+.status-item--accent .status-number {
+  color: var(--black);
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
   :root {
@@ -540,6 +628,36 @@ body {
   .benefits {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+
+  .review-card--last {
+    grid-column: auto;
+    max-width: 100%;
+  }
+
+  .status-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .status-item {
+    border-bottom: 1px solid var(--gray-200);
+    padding: 24px 16px;
+  }
+
+  .status-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .status-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .status-number {
+    font-size: 32px;
   }
 
   .ty-hero {
