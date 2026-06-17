@@ -520,6 +520,39 @@ body {
   font-weight: 600;
 }
 
+/* ── TICKER ── */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 14px 0;
+  background: var(--white);
+}
+
+.ticker {
+  display: flex;
+  gap: 64px;
+  white-space: nowrap;
+  width: max-content;
+  animation: ticker-scroll 35s linear infinite;
+}
+
+.ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  font-size: 13px;
+  color: var(--gray-500);
+  flex-shrink: 0;
+  letter-spacing: 0.01em;
+}
+
 /* ── REVIEWS ── */
 .reviews {
   display: grid;
@@ -537,6 +570,16 @@ body {
   border: 1px solid var(--gray-200);
   border-radius: 10px;
   padding: 24px;
+}
+
+.review-number {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--black);
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .review-stars {
